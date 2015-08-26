@@ -1,0 +1,82 @@
+// Color definitions
+
+// HSL
+@hue:         210;
+@saturation:  10%;
+@brightness:  12%;
+
+@light-hue:         210;
+@light-saturation:  12%;
+@light-brightness:  14%;
+
+// Colors
+@red:     rgb(250,   0,   0);
+@cherry:  rgb(250, 120, 100);
+@orange:  rgb(250, 190,  50);
+@lime:    rgb(210, 240,   0);
+@green:   rgb(130, 230,   0);
+@blue:    rgb(  0, 160, 250);
+@pink:    rgb(250,  50, 200);
+@candy:   rgb(250, 100, 210);
+@white:   rgb(230, 230, 230);
+
+// Computed colors
+.colors(@h, @s, @l){
+
+    // Monochrome
+    @mono-1:  hsl(@h, 14%, 71%);
+    @mono-2:  hsl(@h,  9%, 55%);
+    @mono-3:  hsl(@h, 10%, 40%);
+
+    // Base colors
+    @text:        @mono-1;
+    @background:  hsl(@h, @s, @l);
+    @accent:      hsl(@h, 0, 85%);
+    @guide:       fade(@text, 15%);
+
+    // Custom
+    @cursor-line-color:      hsla(@h, 100%,  80%, .04);
+    @bracket-matcher-color:  lighten(@background, 25%);
+
+    // General colors
+    @text-color:             @text;
+    @cursor-color:           @accent;
+    @selection-color:        lighten(@background, 10%);
+    @selection-flash-color:  @accent;
+    @background-color:       @background;
+
+    // Guide colors
+    @wrap-guide-color:           @guide;
+    @indent-guide-color:         @guide;
+    @invisible-character-color:  @guide;
+
+    // For find and replace markers
+    @result-marker-color:           @text;
+    @result-marker-color-selected:  @accent;
+
+    // Gutter colors
+    @gutter-text-color:                 darken(@text, 26%);
+    @gutter-text-color-selected:        @text;
+    @gutter-background-color:           @background;
+    @gutter-background-color-selected:  lighten(@background, 2%);
+
+    // Git colors - For git diff info. i.e. in the gutter
+    @color-renamed:   hsl(208, 100%, 60%);
+    @color-added:     hsl(150,  60%, 54%);
+    @color-modified:  hsl(40,   60%, 70%);
+    @color-removed:   hsl(0,    70%, 60%);
+
+    // For language entity colors
+    @color-variable:   @mono-1;
+    @color-constant:   @mono-1;
+    @color-property:   @mono-1;
+    @color-value:      @mono-1;
+    @color-function:   @mono-1;
+    @color-method:     @mono-1;
+    @color-class:      @mono-1;
+    @color-keyword:    @mono-1;
+    @color-tag:        @mono-1;
+    @color-attribute:  @mono-1;
+    @color-import:     @mono-1;
+    @color-snippet:    @mono-1;
+}

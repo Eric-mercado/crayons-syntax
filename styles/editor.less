@@ -1,0 +1,98 @@
+// Editor styles (background, gutter, guides)
+
+.properties(@h, @s, @l){
+
+    .colors(@h, @s, @l);
+
+    background-color: @background-color;
+    color: @text-color;
+
+    .line.cursor-line {
+        background-color: @cursor-line-color;
+    }
+
+    .invisible {
+        color: @text-color;
+    }
+
+    .cursor {
+        border-left: 2px solid @cursor-color;
+    }
+
+    .selection .region {
+        background-color: @selection-color;
+    }
+
+    .bracket-matcher .region {
+        background: @bracket-matcher-color;
+        border: 0;
+    }
+
+    .invisible-character {
+        color: @invisible-character-color;
+    }
+
+    .indent-guide {
+        color: @indent-guide-color;
+    }
+
+    .wrap-guide {
+        background-color: @wrap-guide-color;
+    }
+
+    .gutter {
+
+        .line-number {
+            color: @gutter-text-color;
+            -webkit-font-smoothing: antialiased;
+
+            &.git-line-removed:before {
+                bottom: -3px;
+            }
+            &.git-line-removed:after {
+                content: "";
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+                width: 25px;
+                border-bottom: 1px dotted fade(@color-removed, 50%);
+                pointer-events: none;
+            }
+
+            &.cursor-line {
+                color: @gutter-text-color-selected;
+                background-color: @gutter-background-color-selected;
+            }
+
+            &.cursor-line-no-selection {
+                background-color: transparent;
+            }
+
+            .icon-right {
+                color: @text-color;
+            }
+
+            .icon-right {
+                color: @text-color;
+            }
+        }
+    }
+
+    .gutter .line-number.folded,
+    .gutter .line-number:after,
+    .fold-marker:after {
+        color: @gutter-text-color-selected;
+    }
+
+}
+
+atom-text-editor, // <- remove when Shadow DOM can't be disabled
+:host {
+
+    .properties(@hue, @saturation, @brightness);
+
+    &[data-grammar~=html][data-grammar~=basic], &[data-grammar~=xml], &[data-grammar~=css], &[data-grammar~=json], &[data-grammar~=plain], &[data-grammar~=gfm] {
+
+        .properties(@light-hue, @light-saturation, @light-brightness);
+    }
+}

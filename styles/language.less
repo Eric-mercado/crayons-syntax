@@ -117,10 +117,16 @@
     // (!important to force color on embedded scripts)
     .tag {
         color: @white !important;
+    }
 
-        * {
-            color: @white;
-        }
+    // = <
+    .punctuation {
+        color: @white;
+    }
+
+    // force color on id attribute values
+    .toc-list {
+        color: @orange;
     }
 
     // (!important to force color on embedded scripts)
@@ -128,7 +134,7 @@
         color: @cherry !important;
     }
 
-    .embedded {
+    .embedded:not(.text) {
         color: @white;
     }
 }

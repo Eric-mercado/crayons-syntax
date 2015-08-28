@@ -15,8 +15,8 @@
 .quoted, .string:not(.comment), .empty-string {
     color: @orange !important;
 
-    // \n \f
-    .escape, .escaped {
+    // force color on direct children except code
+    >*:not(.embedded) {
         color: @orange !important;
     }
 }

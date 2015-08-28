@@ -49,13 +49,17 @@
             &.git-line-removed:before {
                 bottom: -3px;
             }
+
+            &.git-line-removed {
+                border-left: none !important;
+            }
+
             &.git-line-removed:after {
                 content: "";
                 position: absolute;
                 left: 0px;
                 bottom: 0px;
                 width: 25px;
-                border-bottom: 1px dotted fade(@color-removed, 50%);
                 pointer-events: none;
             }
 
